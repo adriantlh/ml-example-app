@@ -21,8 +21,8 @@ declare -A MODELS=(
     # YOLOv9 MIT License version (using WongKinYiu/YOLO which redirects to MultimediaTechLab)
     ["yolov9-mit.pt"]="https://github.com/WongKinYiu/YOLO/releases/download/v1.0/yolov9c.pt"
 
-    # YOLOX (Apache 2.0 License) - Commercial friendly
-    ["yolox_s.onnx"]="https://huggingface.co/hr16/yolox-onnx/resolve/main/yolox_s.onnx"
+    # YOLOX (Apache 2.0 License) - Commercial friendly - official repository
+    ["yolox_s.pth"]="https://github.com/Megvii-BaseDetection/YOLOX/releases/download/0.1.1rc0/yolox_s.pth"
 
     # YOLOv9 ONNX MIT version - properly licensed from ibaiGorordo/ONNX-YOLOv9-MIT-Object-Detection
     ["yolov9-mit.onnx"]="https://github.com/ibaiGorordo/ONNX-YOLOv9-MIT-Object-Detection/releases/download/0.1.0/v9-s_mit.onnx"
@@ -30,7 +30,6 @@ declare -A MODELS=(
 
 # Alternative URLs in case primary ones fail (MIT/Apache 2.0 only)
 declare -A ALT_MODELS=(
-    ["yolox_s.onnx"]="https://github.com/Megvii-BaseDetection/YOLOX/releases/download/0.1.1rc0/yolox_s.pth"
     # Alternative YOLOv9 ONNX models (medium and compact versions)
     ["yolov9-mit.onnx"]="https://github.com/ibaiGorordo/ONNX-YOLOv9-MIT-Object-Detection/releases/download/0.1.0/v9-m_mit.onnx"
 )
@@ -252,7 +251,7 @@ if [ "$1" = "--help" ] || [ "$1" = "-h" ]; then
     echo "This script downloads MIT/Apache 2.0 licensed models for commercial use:"
     echo "  - yolov9-mit.pt (YOLOv9 MIT License version - commercial friendly)"
     echo "  - yolov9-mit.onnx (YOLOv9 ONNX MIT License version - commercial friendly)"
-    echo "  - yolox_s.pth (YOLOX model, Apache 2.0 license - commercial friendly)"
+    echo "  - yolox_s.pth (YOLOX model, Apache 2.0 license - commercial friendly from official repo)"
     echo
     echo "LICENSING NOTE:"
     echo "  - All models use permissive licenses (MIT/Apache 2.0)"
