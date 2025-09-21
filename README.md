@@ -26,41 +26,39 @@ ml-example-app/
 └── .venv/           # Python virtual environment
 ```
 
-## 🚀 Quick Start
+## 🚀 Quick Start (Standalone Localhost for Homelabs)
 
 ### Prerequisites
 
-- Python 3.8+
+- Python 3.12
 - Node.js 16+
-- YOLOv9 ONNX model file
+- Poetry
 
-### Backend Setup
+### Setup Instructions
 
-1. **Navigate to project root**:
+1. **Create Python virtual environment**:
    ```bash
-   cd ml-example-app
-   ```
-
-2. **Activate virtual environment**:
-   ```bash
+   python3.12 -m venv .venv
    source .venv/bin/activate
+   pip install poetry
    ```
 
-3. **Install dependencies**:
-   ```bash
-   pip install fastapi uvicorn opencv-python pillow numpy onnxruntime
-   ```
-
-4. **Place your YOLOv9 ONNX model**:
-   ```bash
-   # Place your model file at:
-   backend/models/yolov9.onnx
-   ```
-
-5. **Start the backend server**:
+2. **Install Python dependencies**:
    ```bash
    cd backend
-   python main.py
+   poetry install
+   cd ..
+   ```
+
+3. **Download models**:
+   ```bash
+   ./download_models.sh
+   ```
+
+4. **Start the backend server**:
+   ```bash
+   cd backend
+   uvicorn main:app
    ```
 
    The API will be available at:
@@ -68,21 +66,10 @@ ml-example-app/
    - **Swagger UI**: http://localhost:8000/docs
    - **Health Check**: http://localhost:8000/health
 
-### Frontend Setup
-
-1. **Navigate to frontend directory**:
+5. **Start the frontend**:
    ```bash
-   cd frontend
-   ```
-
-2. **Install dependencies**:
-   ```bash
-   npm install
-   ```
-
-3. **Start development server**:
-   ```bash
-   npm start
+   cd ../frontend
+   npm run start-standalone
    ```
 
    The frontend will be available at: http://localhost:3000

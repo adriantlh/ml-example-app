@@ -1,9 +1,0 @@
-{
-  "permissions": {
-    "allow": [
-      "Read(//home/orin/VSCODE/ml-example-app/**)"
-    ],
-    "deny": [],
-    "ask": []
-  }
-}
