@@ -1,0 +1,13 @@
+I wPlan: Cascaded Detection Architecture
+1. Registry Config
+   - Add `backend/config/model_registry.toml` describing general detector, class→specialist routing, thresholds.
+2. Base Detector Abstraction
+   - Create `backend/detectors/base_detector.py` with shared load/run helpers for ONNX models.
+3. Specialist Implementations
+   - Extend `backend/detectors/` with specialist wrappers (e.g., `window_specialist.py`, `pipe_specialist.py`) using the base class.
+4. Inference Orchestration
+   - Update `backend/main.py` to load registry, instantiate detectors, route general detections to specialists, merge results.
+5. Training Assets
+   - Organize dataset configs under `backend/training/datasets/` and track YOLO runs in `backend/training/runs/`.
+6. Experiment Logging
+   - Maintain `backend/experiments/metrics.csv` referencing dataset, run, ONNX artifact for reproducibility.

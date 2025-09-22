@@ -7,6 +7,8 @@ import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
 import { cn } from '@/lib/utils'
 
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL ?? 'http://localhost:8000'
+
 interface Detection {
   class_id: number
   class_name: string
@@ -82,7 +84,7 @@ export function ImageUpload({ onInferenceComplete }: ImageUploadProps) {
       const formData = new FormData()
       formData.append('file', selectedFile)
 
-      const response = await fetch('http://localhost:8000/infer', {
+      const response = await fetch(`${API_BASE_URL}/infer`, {
         method: 'POST',
         body: formData,
       })
@@ -98,7 +100,7 @@ export function ImageUpload({ onInferenceComplete }: ImageUploadProps) {
       }
     } catch (error) {
       console.error('Inference failed:', error)
-      alert('Failed to perform inference. Make sure the backend is running on http://localhost:8000')
+      alert(`Failed to perform inference. Make sure the backend is reachable at ${API_BASE_URL}`)
     } finally {
       setIsLoading(false)
     }
